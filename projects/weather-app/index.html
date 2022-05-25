@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./main.js" defer></script>
+  <title>Weather App</title>
+</head>
+<body class="loading bg-[url(./night-clear-landscape.jpg)] bg-cover bg-center relative flex justify-end text-white">
+  <div class="current p-10 absolute left-0 bottom-0 flex flex-col">
+    <div class="weather flex">
+      <div class="condition"></div>
+      <div class="temp text-9xl paper-shadow"></div>
+    </div>
+
+    <div class="city text-8xl paper-shadow"></div>
+
+    <div class="flex pt-4 gap-8 items-end">
+      <div class="time text-5xl paper-shadow-sm"></div>
+      <div class="date text-2xl paper-shadow-sm"></div>
+    </div>
+  </div>
+
+  <div id="sidebar" class="w-[max(35%,350px)] h-full relative">
+    <div class="frosted-glass-tint absolute w-full h-full"></div>
+    
+    <div class="h-full flex flex-col justify-between p-8 relative">
+      <section id="location">
+        <div class="search-group relative mb-6">
+          <form action="">
+            <label for="search" class="flex border-b-2">
+              <svg class="w-12 h-12" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+              </svg>
+    
+              <input class="pl-2 w-full bg-transparent text-xl"
+                    type="text"
+                    name="search"
+                    id="search"
+                    placeholder="Search 'City, State, Country'">
+            </label>
+          </form>
+
+          <div class="hidden z-10 dropdown frosted-glass top-full right-0 left-0 px-4 absolute">
+            <ul id="cities" class="text-xl py-2"></ul>
+          </div>
+
+          <span class="error hidden text-sm text-red-600 absolute right-0">No cities found. Example: city, state, country</span>
+        </div>
+
+        <div id="address" class="flex">
+          <div id="city" class="comma text-3xl"></div>
+          <div id="state" class="comma text-3xl"></div>
+          <div id="country" class="text-3xl"></div>
+        </div>
+        <div id="date" class="text-2xl"></div>
+      </section>
+
+      <section id="hourly" class="flex flex-col">
+        <span class="text-6xl hideable">Today</span>
+        <div class="weather flex items-center gap-2">
+          <div class="condition"></div>
+          <div class="high temp text-xl"></div>
+          <div class="low temp text-xl"></div>
+        </div>
+        <canvas id="chart"></canvas>
+      </section>
+
+      <section id="daily" class="flex justify-between">
+        <div class="day basis-0 grow flex flex-col items-center">
+          <div class="name text-[clamp(2rem,3vw,3rem)]"></div>
+          <div class="high temp"></div>
+          <div class="condition flex justify-center"></div>
+          <div class="low temp"></div>
+        </div>
+
+        <div class="day basis-0 grow flex flex-col items-center">
+          <div class="name text-[clamp(2rem,3vw,3rem)]"></div>
+          <div class="high temp"></div>
+          <div class="condition flex justify-center"></div>
+          <div class="low temp"></div>
+        </div>
+
+        <div class="day basis-0 grow flex flex-col items-center">
+          <div class="name text-[clamp(2rem,3vw,3rem)]"></div>
+          <div class="high temp"></div>
+          <div class="condition flex justify-center"></div>
+          <div class="low temp"></div>
+        </div>
+
+        <div class="day basis-0 grow flex flex-col items-center">
+          <div class="name text-[clamp(2rem,3vw,3rem)]"></div>
+          <div class="high temp"></div>
+          <div class="condition flex justify-center"></div>
+          <div class="low temp"></div>
+        </div>
+
+        <div class="day basis-0 grow flex flex-col items-center">
+          <div class="name text-[clamp(2rem,3vw,3rem)]"></div>
+          <div class="high temp"></div>
+          <div class="condition flex justify-center"></div>
+          <div class="low temp"></div>
+        </div>
+
+        <div class="day basis-0 grow flex flex-col items-center">
+          <div class="name text-[clamp(2rem,3vw,3rem)]"></div>
+          <div class="high temp"></div>
+          <div class="condition flex justify-center"></div>
+          <div class="low temp"></div>
+        </div>
+
+        <div class="day basis-0 grow flex flex-col items-center">
+          <div class="name text-[clamp(2rem,3vw,3rem)]"></div>
+          <div class="high temp"></div>
+          <div class="condition flex justify-center"></div>
+          <div class="low temp"></div>
+        </div>
+      </section>
+
+      <div id="unit-controls" class="hideable flex justify-center gap-4">
+        <span class="grow basis-0 flex justify-end">
+          <button id="fahrenheit" type="button" class="active text-xl">Fahrenheit</button>
+        </span>
+        <span class="border-l-2"></span>
+        <span class="grow basis-0">
+          <button id="celsius" type="button" class="text-xl">Celsius</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
